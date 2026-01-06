@@ -1,12 +1,6 @@
-# Illuminant Estimation with Reinforcement Learning
+# RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes
 
 This repository contains inference code for our reinforcement learning-based illuminant estimation method.
-
-## Requirements
-
-```bash
-pip install numpy scipy opencv-python pandas torch stable-baselines3 gymnasium
-```
 
 ## Dataset Preparation
 
@@ -160,5 +154,6 @@ If you use this code in your research, please cite:
 [Specify your license here]
 
 ## Contact
+
 
 For questions or issues, please contact [your email] or open an issue on GitHub.
