@@ -15,7 +15,7 @@ class IlluminantEstimationEnv(gym.Env):
         self.dataset_name = dataset_name
 
         if img_dir is None:
-            img_dir = f'./dataset/{dataset_name}dataset/img'
+            img_dir = f'./dataset/{dataset_name}_dataset/img'
         self.img_dir = img_dir
 
         low = np.array([-0.6, -4], dtype=np.float32)

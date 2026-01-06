@@ -306,7 +306,7 @@ def imresize_nearest(img, scale):
 
 
 def RGB_estimation(index, action, load_img=None, dataset='NCC'):
-    base_path = f"./dataset/{dataset}dataset"
+    base_path = f"./dataset/{dataset}_dataset"
 
     gt_mat_path = os.path.join(base_path, "gt.mat")
     gt_data = scipy.io.loadmat(gt_mat_path)

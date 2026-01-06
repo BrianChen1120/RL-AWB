@@ -2,77 +2,66 @@
 
 This repository contains inference code for our reinforcement learning-based illuminant estimation method.
 
-## Dataset Preparation
-
-Download the required datasets and organize them as follows:
-
-```
-project/
-├── dataset/
-│   ├── NCCdataset/
-│   │   ├── img/          # Images: 1.png, 2.png, ..., 513.png
-│   │   ├── msk/          # Masks: 1.png, 2.png, ..., 513.png
-│   │   └── gt.mat        # Ground truth illuminants
-│   ├── LEVIdataset/
-│   │   ├── img/          # Images: 1.png, 2.png, ..., 700.png
-│   │   ├── msk/          # Masks: 1.png, 2.png, ..., 700.png
-│   │   └── gt.mat        # Ground truth illuminants
-│   └── Gehlerdataset/
-│       ├── img/          # Images: 1.png, 2.png, ..., 559.png
-│       ├── msk/          # Masks: 1.png, 2.png, ..., 559.png
-│       └── gt.mat        # Ground truth illuminants
-```
-
-### Dataset Download Links
-
-- **NCC Dataset**: [Download Link] (Please provide link)
-- **LEVI Dataset**: [Download Link] (Please provide link)
-- **Gehler Dataset**: [Download Link] (Please provide link)
-
-**Important Notes:**
-- Images in `img/` folder should be PNG format (e.g., `1.png`, `2.png`, ...)
-- Masks in `msk/` folder should be PNG format with same naming
-- Ground truth file `gt.mat` should be in MATLAB format
-
-## Model Download
-
-Download the pre-trained models and place them in the `models/` directory:
-
-```
-models/
-├── NCC_model.zip
-├── LEVI_model.zip
-└── Gehler_model.zip
-```
-
-**Model Download Links:**
-- **NCC Model**: [Download Link] (Please provide link)
-- **LEVI Model**: [Download Link] (Please provide link)
-- **Gehler Model**: [Download Link] (Please provide link)
-
-## Usage
-
-### Inference on Full Dataset
-
-Run inference on the entire dataset:
+## Requirements
 
 ```bash
+pip install -r requirements.txt
+```
+
+**Required packages:**
+- Python >= 3.8
+- numpy==1.24.4
+- scipy==1.10.1
+- opencv-python==4.11.0.86
+- pandas==2.2.3
+- torch==2.6.0
+- stable-baselines3==2.6.0
+- gymnasium==1.1.1
+
+## Quick Start
+
+### Step 1: Download Models and Datasets
+
+#### Option A: Automated Download (Try first)
+```bash
+# Install gdown
+pip install gdown
+
+# Run download script
+# Windows
+.\download.bat
+
+# Linux/Mac
+chmod +x download.sh
+./download.sh
+```
+
+#### Option B: Manual Download
+
+**Download Links:**
+- Models (Dropbox):
+  - [NCC Model](https://www.dropbox.com/scl/fi/b9sgxxeu481gr4znv5l63/NCC_model.zip?rlkey=664d2tqily9shzktn08npmqxh&st=9vt59fmj&dl=1)
+  - [LEVI Model](https://www.dropbox.com/scl/fi/o6gsmpx9lpku082ybymou/LEVI_model.zip?rlkey=fbvn3e0xiu1g4q1cnjq0v0vhu&st=unqs9q6g&dl=1)
+  - [Gehler Model](https://www.dropbox.com/scl/fi/2hhmgw7j597vxsmlir98t/Gehler_model.zip?rlkey=0cftcoptp9vk6abn2p7lwaa0g&st=v24ady0c&dl=1)
+
+- Datasets (Google Drive):
+  - [LEVI Dataset](https://drive.google.com/drive/folders/1VeqcIhkr83gL_ZF5DMnvFsmXyC4QhSro)
+  - [NCC Dataset](https://drive.google.com/drive/folders/1MFfw-LlwNjCZz4W3NfrFC5z-SKRGl1EB)
+  - [Gehler Dataset](https://drive.google.com/drive/folders/1tlQTG3k3vu_n-IVHOI0MZV2ULn5Toi2m)
+
+See [models/README.md](models/README.md) and [dataset/README.md](dataset/README.md) for more details.
+
+### Step 2: Run Inference
+
+```bash
+# Process entire NCC dataset
 python inference.py --model_path models/NCC_model.zip --dataset NCC
-```
 
-This will:
-- Process all images in the dataset
-- Save detailed results to `results/ncc_inference_detailed.csv`
-- Save summary to `results/ncc_inference_summary.txt`
-- Display performance metrics comparing before RL (step 0) vs after RL (final step)
-
-### Inference on Single Image
-
-Process a specific image:
-
-```bash
+# Process single image
 python inference.py --model_path models/NCC_model.zip --dataset NCC --image_idx 42
 ```
+
+## Usage
 
 ### Command Line Arguments
 
@@ -93,13 +82,23 @@ python inference.py --model_path models/LEVI_model.zip --dataset LEVI --image_id
 
 # Custom output directory
 python inference.py --model_path models/Gehler_model.zip --dataset Gehler --output_dir ./my_results
+
+# Custom random seed
+python inference.py --model_path models/NCC_model.zip --dataset NCC --seed 123
 ```
 
-## Output Format
+## Output
 
-### CSV Output (Detailed Results)
+### Directory Structure After Running
+```
+results/
+├── ncc_inference_detailed.csv      # Step-by-step results
+└── ncc_inference_summary.txt       # Performance summary
+```
 
-The detailed CSV file contains step-by-step results with the following columns:
+### CSV Output Format
+
+The detailed CSV file contains:
 - `image_idx`: Image index
 - `step`: Processing step (0 = initial, 1-100 = RL iterations)
 - `arr`: Angular error (binary)
@@ -109,31 +108,49 @@ The detailed CSV file contains step-by-step results with the following columns:
 
 ### Performance Metrics
 
-When processing the full dataset, the following metrics are displayed:
-
-**Binary Errors:**
-- Median, Mean, Trimean, Best 25%, Worst 25%
-
-**Reproduction Errors:**
-- Median, Mean, Trimean, Best 25%, Worst 25%
-
-**Improvement Summary:**
-- Number of images improved
-- Number of images worsened
-- Number of images unchanged
-
-## Project Structure
+When processing the full dataset, metrics are displayed:
 
 ```
-.
-├── inference.py           # Main inference script
-├── env2.py               # Gymnasium environment (inference only)
-├── utils/
-│   ├── Algorithm.py      # Core illuminant estimation algorithm
-│   └── WBsRGB.py         # RGB histogram utilities
-├── models/               # Pre-trained RL models
-├── dataset/              # Dataset directory (to be downloaded)
-└── results/              # Inference results (auto-created)
+============================================================
+PERFORMANCE ANALYSIS
+============================================================
+
+Start Performance (binary errors) [median, mean, trimean, best25%, worst25%]:
+  2.1239, 3.1054, 2.2884, 0.6798, 7.2224
+
+Start Performance (rep errors) [median, mean, trimean, best25%, worst25%]:
+  2.9250, 4.1524, 3.0880, 0.9691, 9.5274
+
+End Performance (binary errors) [median, mean, trimean, best25%, worst25%]:
+  2.0156, 2.9847, 2.1523, 0.6234, 6.8901
+
+End Performance (rep errors) [median, mean, trimean, best25%, worst25%]:
+  2.7845, 4.0123, 2.9456, 0.8912, 9.2345
+
+Improvement Summary:
+  Improved: 312 images
+  Worsened: 156 images
+  Unchanged: 45 images
+============================================================
+```
+
+## Expected Dataset Structure
+
+```
+dataset/
+├── NCC_dataset/
+│   ├── img/                   # 513 .png files
+│   ├── msk/                   # 513 .png files
+│   └── gt.mat
+├── LEVI_dataset/
+│   ├── img/                   # 700 .png files
+│   ├── msk/                   # 700 .png files
+│   ├── gt.mat
+│   └── LEVI dataset EXIF information.csv
+└── Gehler_dataset/
+    ├── img/                   # 559 .png files
+    ├── msk/                   # 559 .png files
+    └── gt.mat
 ```
 
 ## Citation
@@ -149,4 +166,3 @@ If you use this code in your research, please cite:
   pages = {to appear}
 }
 ```
-
