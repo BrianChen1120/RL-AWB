@@ -141,19 +141,12 @@ When processing the full dataset, the following metrics are displayed:
 If you use this code in your research, please cite:
 
 ```bibtex
-@article{your_paper,
-  title={Your Paper Title},
-  author={Your Name},
-  journal={Journal Name},
-  year={2025}
+@inproceedings{rlawb2026,
+  title = {RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes},
+  author = {Yuan-Kang Lee and Kuan-Lin Chen and Chia-Che Chang and Yu-Lun Liu},
+  booktitle = {under review},
+  year = {2026},
+  pages = {to appear}
 }
 ```
 
-## License
-
-[Specify your license here]
-
-## Contact
-
-
-For questions or issues, please contact [your email] or open an issue on GitHub.
