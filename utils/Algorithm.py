@@ -1,8 +1,15 @@
 ##########################################################################
 # Main function for proposed color constancy algorithm SGP-LRD:
-# Yuan-Kang Lee, Kuan-Lin Chen, Chia-Che Chang, and Yu-Lun Liu.
+#
+# Copyright (c) 2026-present, Yuan-Kang Lee, Kuan-Lin Chen
+# National Taiwan University, Taiwan
+# National Yang Ming Chiao Tung University, Taiwan
+# r12942062@ntu.edu.tw | yuankang.neillee@gmail.com
+# 
+# Please cite the following work if this program is used:
+# Yuan-Kang Lee, Kuan-Lin Chen, Chia-Che Chang, and Yu-Lun Liu,
 # "RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction 
-# in Low-Light Night-time Scenes", January 2026
+# in Low-Light Night-time Scenes", arXiv 2026
 ##########################################################################
 
 import numpy as np

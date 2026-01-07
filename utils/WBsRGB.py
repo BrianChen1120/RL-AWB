@@ -1,18 +1,25 @@
+###########################################################################
+# White-balance model class
+#
+# Copyright (c) 2018-present, Mahmoud Afifi
+# York University, Canada
+# mafifi@eecs.yorku.ca | m.3afifi@gmail.com
+#
+# This source code is licensed under the license found in the
+# LICENSE file in the root directory of this source tree.
+# All rights reserved.
+#
+# Please cite the following work if this program is used:
+# Mahmoud Afifi, Brian Price, Scott Cohen, and Michael S. Brown,
+# "When color constancy goes wrong: Correcting improperly white-balanced
+# images", CVPR 2019.
+###########################################################################
+
 import numpy as np
 import cv2
 
-
 def rgb_uv_hist(I, h=60):
-    """
-    Computes an RGB-uv histogram tensor.
 
-    Args:
-        I: Input image array (H, W, 3)
-        h: Histogram bin size (default: 60)
-
-    Returns:
-        hist: RGB-uv histogram tensor (h, h, 3)
-    """
     sz = np.shape(I)
 
     if sz[0] * sz[1] > 202500:
