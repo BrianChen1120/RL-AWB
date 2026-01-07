@@ -1,6 +1,19 @@
 # RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes
 
-This repository contains inference code for our proposed RL-AWB framework.
+[Yuan-Kang Lee](https://ntuneillee.github.io)<sup>1,3*</sup>, 
+[Kuan-Lin Chen](https://brianchen1120.github.io)<sup>2,3*</sup>, 
+[Chia-Che Chang](https://scholar.google.com.tw/citations?user=FK1RcpoAAAAJ)<sup>1</sup>, 
+[Yu-Lun Liu](https://yulunalexliu.github.io)<sup>3</sup>
+
+<sup>1</sup>MediaTek Inc.  
+<sup>2</sup>National Taiwan University  
+<sup>3</sup>National Yang Ming Chiao Tung University
+
+We present RL-AWB, the first framework that integrates reinforcement learning into automatic white balance for nighttime color constancy. Our approach fundamentally differs from existing paradigms by formulating AWB as a sequential decision-making problem, where an RL agent learns adaptive parameter selection policies for a novel statistical illuminant estimator. [[Project Page]](https://ntuneillee.github.io/research/rl-awb/)
+- We develop SGP-LRD (Salient Gray Pixels with Local Reflectance Differences), a nighttime-specific color constancy algorithm that achieves state-of-the-art illumination estimation on public nighttime benchmarks.
+- We design the RL-AWB framework with Soft Actor-Critic (SAC) training and two-stage curriculum learning, enabling adaptive per-image parameter optimization with exceptional data efficiency.
+- We contribute LEVI (Low-light Evening Vision Illumination), the first multi-camera nighttime dataset comprising 700 images from two sensors, enabling rigorous cross-sensor color constancy evaluation.
+- Extensive experiments demonstrate superior cross-sensor generalization over state-of-the-art with only 5 training images per dataset.
 
 ## Requirements
 
@@ -167,4 +180,5 @@ If you use this code in your research, please cite:
 }
 
 ```
+
 
