@@ -1,6 +1,6 @@
 # RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes
 
-This repository contains inference code for our reinforcement learning-based illuminant estimation method.
+This repository contains inference code for our proposed RL-AWB framework.
 
 ## Requirements
 
@@ -47,7 +47,9 @@ chmod +x download.sh
 - Datasets (Google Drive):
   - [LEVI Dataset](https://drive.google.com/drive/folders/1VeqcIhkr83gL_ZF5DMnvFsmXyC4QhSro)
   - [NCC Dataset](https://drive.google.com/drive/folders/1MFfw-LlwNjCZz4W3NfrFC5z-SKRGl1EB)
+    Reference: https://github.com/kaifuyang/Gray-Pixel
   - [Gehler Dataset](https://drive.google.com/drive/folders/1tlQTG3k3vu_n-IVHOI0MZV2ULn5Toi2m)
+  - Reference: https://www.cs.sfu.ca/~colour/data/shi_gehler/
 
 See [models/README.md](models/README.md) and [dataset/README.md](dataset/README.md) for more details.
 
@@ -165,4 +167,5 @@ If you use this code in your research, please cite:
   year = {2026},
   pages = {to appear}
 }
+
 ```
