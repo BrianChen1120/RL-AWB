@@ -165,20 +165,3 @@ dataset/
     ├── msk/                   # 559 .png files
     └── gt.mat
 ```
-
-## Citation
-
-If you use this code in your research, please cite:
-
-```bibtex
-@inproceedings{rlawb2026,
-  title = {RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes},
-  author = {Yuan-Kang Lee and Kuan-Lin Chen and Chia-Che Chang and Yu-Lun Liu},
-  booktitle = {under review},
-  year = {2026},
-  pages = {to appear}
-}
-
-```
-
-
