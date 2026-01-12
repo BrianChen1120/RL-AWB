@@ -9,7 +9,9 @@
 <sup>2</sup>National Taiwan University  
 <sup>3</sup>National Yang Ming Chiao Tung University
 
-We present RL-AWB, the first framework that integrates reinforcement learning into automatic white balance for nighttime color constancy. Our approach fundamentally differs from existing paradigms by formulating AWB as a sequential decision-making problem, where an RL agent learns adaptive parameter selection policies for a novel statistical illuminant estimator. [[Project Page]](https://ntuneillee.github.io/research/rl-awb/)
+[[Project Page]](https://ntuneillee.github.io/research/rl-awb/) | [[arXiv]](https://arxiv.org/abs/2601.05249)
+
+We present RL-AWB, the first framework that integrates reinforcement learning into automatic white balance for nighttime color constancy. Our approach fundamentally differs from existing paradigms by formulating AWB as a sequential decision-making problem, where an RL agent learns adaptive parameter selection policies for a novel statistical illuminant estimator. 
 - We develop SGP-LRD (Salient Gray Pixels with Local Reflectance Differences), a nighttime-specific color constancy algorithm that achieves state-of-the-art illumination estimation on public nighttime benchmarks.
 - We design the RL-AWB framework with Soft Actor-Critic (SAC) training and two-stage curriculum learning, enabling adaptive per-image parameter optimization with exceptional data efficiency.
 - We contribute LEVI (Low-light Evening Vision Illumination), the first multi-camera nighttime dataset comprising 700 images from two sensors, enabling rigorous cross-sensor color constancy evaluation.
@@ -165,3 +167,4 @@ dataset/
     ├── msk/                   # 559 .png files
     └── gt.mat
 ```
+
