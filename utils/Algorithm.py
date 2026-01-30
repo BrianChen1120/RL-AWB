@@ -387,7 +387,7 @@ def RGB_estimation( index, action, load_img=None, dataset='NCC' ):
 
     order = 2
     illuminant = estimate_illuminant_pixelwise_accelerated(
-        img_masked, order, action[4], action[5], a, action[6],
+        img_masked, order, action[4], action[5], SelectedSGPs, action[6],
         action[7], int( action[9] ), bitDepth=bitDepth
     )
     EvaLum = illuminant
