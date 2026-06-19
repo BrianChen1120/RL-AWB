@@ -1,4 +1,4 @@
-# RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes
+# [ECCV 2026] RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes
 
 [Yuan-Kang Lee](https://ntuneillee.github.io)<sup>1,3*</sup>, 
 [Kuan-Lin Chen](https://brianchen1120.github.io)<sup>2,3*</sup>, 
