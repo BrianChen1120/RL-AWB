@@ -154,17 +154,17 @@ Improvement Summary:
 ```
 dataset/
 ├── NCC_dataset/
-│   ├── img/                   # 513 .png files
-│   ├── msk/                   # 513 .png files
+│   ├── img/                  
+│   ├── msk/                  
 │   └── gt.mat
 ├── LEVI_dataset/
-│   ├── img/                   # 700 .png files
-│   ├── msk/                   # 700 .png files
+│   ├── img/                   
+│   ├── msk/                   
 │   ├── gt.mat
 │   └── LEVI dataset EXIF information.csv
 └── Gehler_dataset/
-    ├── img/                   # 559 .png files
-    ├── msk/                   # 559 .png files
+    ├── img/                   
+    ├── msk/                   
     └── gt.mat
 ```
 
